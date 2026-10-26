@@ -1,0 +1,341 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Minha biblioteca musical pessoal, feita para ouvir e guardar músicas favoritas."
+    >
+
+    <title>My Music Room ♡</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <a href="#" class="logo">My Music Room <span>♡</span></a>
+
+        <p class="subtitulo">
+            a little place for my favorite sounds
+        </p>
+    </header>
+
+    <!-- Conteúdo principal -->
+    <main class="container">
+
+        <!-- Apresentação -->
+        <section class="boas-vindas">
+            <div class="texto-boas-vindas">
+                <span class="etiqueta">MY PERSONAL LIBRARY</span>
+
+                <h1>Lost in the music<span>.</span></h1>
+
+                <p>
+                    Algumas músicas parecem guardar pedaços
+                    de nós que não sabemos explicar.
+                </p>
+            </div>
+
+            <div class="decoracao-lua" aria-hidden="true">
+                ☾
+            </div>
+        </section>
+
+        <!-- Resumo da biblioteca -->
+        <section class="resumo" aria-label="Resumo da biblioteca">
+
+            <article class="cartao-resumo">
+                <span class="icone-resumo">♫</span>
+                <p>Músicas</p>
+                <strong id="total-musicas">0</strong>
+            </article>
+
+            <article class="cartao-resumo">
+                <span class="icone-resumo">♡</span>
+                <p>Favoritas</p>
+                <strong id="total-favoritas">0</strong>
+            </article>
+
+            <article class="cartao-resumo">
+                <span class="icone-resumo">✧</span>
+                <p>Playlists</p>
+                <strong id="total-playlists">0</strong>
+            </article>
+
+        </section>
+
+        <!-- Pesquisa e filtros -->
+        <section class="biblioteca">
+
+            <div class="titulo-secao">
+                <div>
+                    <span class="etiqueta">YOUR COLLECTION</span>
+                    <h2>Minha biblioteca</h2>
+                </div>
+
+                <button
+                    type="button"
+                    id="botao-adicionar"
+                    class="botao-principal"
+                >
+                    + Adicionar música
+                </button>
+            </div>
+
+            <div class="controles-biblioteca">
+
+                <label class="campo-pesquisa">
+                    <span aria-hidden="true">⌕</span>
+
+                    <input
+                        type="search"
+                        id="pesquisa-musicas"
+                        placeholder="Buscar música ou artista..."
+                        aria-label="Buscar música ou artista"
+                    >
+                </label>
+
+                <select id="filtro-musicas" aria-label="Filtrar músicas">
+                    <option value="todas">Todas as músicas</option>
+                    <option value="favoritas">Minhas favoritas</option>
+                </select>
+
+            </div>
+
+            <!-- Formulário para adicionar músicas -->
+            <section id="formulario-container" hidden>
+
+                <form id="formulario-musica">
+
+                    <h3>Adicionar à biblioteca ♡</h3>
+
+                    <label for="nome-musica">Nome da música</label>
+                    <input
+                        type="text"
+                        id="nome-musica"
+                        placeholder="Ex.: After Hours"
+                        required
+                    >
+
+                    <label for="nome-artista">Artista</label>
+                    <input
+                        type="text"
+                        id="nome-artista"
+                        placeholder="Ex.: The Weeknd"
+                        required
+                    >
+
+                    <label for="nome-album">Álbum (opcional)</label>
+                    <input
+                        type="text"
+                        id="nome-album"
+                        placeholder="Ex.: After Hours"
+                    >
+
+                    <label for="imagem-musica">Link da capa (opcional)</label>
+                    <input
+                        type="url"
+                        id="imagem-musica"
+                        placeholder="https://..."
+                    >
+
+                    <label for="link-musica">
+                        Link da música (opcional)
+                    </label>
+                    <input
+                        type="url"
+                        id="link-musica"
+                        placeholder="Link de uma música ou vídeo"
+                    >
+
+                    <label for="arquivo-musica">
+                        Arquivo de áudio (opcional)
+                    </label>
+                    <input
+                        type="file"
+                        id="arquivo-musica"
+                        accept="audio/*"
+                    >
+
+                    <p class="aviso-arquivo">
+                        Você poderá adicionar um arquivo de áudio
+                        do seu dispositivo ou usar um link externo.
+                    </p>
+
+                    <div class="botoes-formulario">
+                        <button
+                            type="button"
+                            id="botao-cancelar"
+                            class="botao-secundario"
+                        >
+                            Cancelar
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="botao-principal"
+                        >
+                            Salvar música ♡
+                        </button>
+                    </div>
+
+                </form>
+            </section>
+
+            <!-- Grade de músicas -->
+            <div id="grade-musicas" class="grade-musicas">
+
+                <div id="mensagem-vazia" class="mensagem-vazia">
+                    <span>☾</span>
+                    <h3>Seu pequeno universo musical</h3>
+                    <p>
+                        Sua biblioteca ainda está vazia.
+                        Adicione uma música para começar.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- Playlists -->
+        <section class="secao-playlists">
+
+            <div class="titulo-secao">
+                <div>
+                    <span class="etiqueta">YOUR MOOD, YOUR MUSIC</span>
+                    <h2>Minhas playlists</h2>
+                </div>
+
+                <button
+                    type="button"
+                    id="botao-playlist"
+                    class="botao-secundario"
+                >
+                    + Nova playlist
+                </button>
+            </div>
+
+            <div id="formulario-playlist-container" hidden>
+
+                <form id="formulario-playlist">
+
+                    <label for="nome-playlist">Nome da playlist</label>
+                    <input
+                        type="text"
+                        id="nome-playlist"
+                        placeholder="Ex.: late night thoughts"
+                        required
+                    >
+
+                    <div class="botoes-formulario">
+                        <button
+                            type="button"
+                            id="cancelar-playlist"
+                            class="botao-secundario"
+                        >
+                            Cancelar
+                        </button>
+
+                        <button type="submit" class="botao-principal">
+                            Criar playlist ♡
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <div id="grade-playlists" class="grade-playlists">
+
+                <p id="mensagem-playlists" class="mensagem-vazia">
+                    Suas playlists aparecerão aqui. ♡
+                </p>
+
+            </div>
+
+        </section>
+
+        <!-- Player musical fixo -->
+        <section class="player-musical" aria-label="Player musical">
+
+            <div class="informacao-player">
+                <div class="capa-player" id="capa-player">
+                    ♫
+                </div>
+
+                <div class="texto-player">
+                    <strong id="player-titulo">Nenhuma música selecionada</strong>
+                    <span id="player-artista">Escolha uma música da biblioteca</span>
+                </div>
+            </div>
+
+            <div class="controles-player">
+
+                <button
+                    type="button"
+                    id="botao-anterior"
+                    aria-label="Música anterior"
+                    title="Música anterior"
+                >
+                    |◀
+                </button>
+
+                <button
+                    type="button"
+                    id="botao-reproduzir"
+                    class="botao-reproduzir"
+                    aria-label="Reproduzir ou pausar"
+                    title="Reproduzir ou pausar"
+                >
+                    ▶
+                </button>
+
+                <button
+                    type="button"
+                    id="botao-proxima"
+                    aria-label="Próxima música"
+                    title="Próxima música"
+                >
+                    ▶|
+                </button>
+
+            </div>
+
+            <div class="progresso-player">
+
+                <span id="tempo-atual">0:00</span>
+
+                <input
+                    type="range"
+                    id="barra-tempo"
+                    min="0"
+                    max="100"
+                    value="0"
+                    aria-label="Progresso da música"
+                >
+
+                <span id="duracao-musica">0:00</span>
+
+            </div>
+
+            <audio id="audio-musica"></audio>
+
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <p>Made of music, memories & midnight thoughts ♡</p>
+    </footer>
+
+</body>
+</html>

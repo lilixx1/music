@@ -1,0 +1,875 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap');
+
+:root {
+    --fundo: #100b0e;
+    --fundo-card: #1b1117;
+    --fundo-card-hover: #25151d;
+    --vinho: #401522;
+    --vinho-claro: #642237;
+    --vermelho: #a8324c;
+    --vermelho-claro: #d35b73;
+    --texto: #f4e9eb;
+    --texto-suave: #b8a4aa;
+    --borda: #38212a;
+    --sombra: 0 12px 35px rgba(0, 0, 0, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(ellipse at top left, #32121f 0%, transparent 38%),
+        radial-gradient(ellipse at bottom right, #241019 0%, transparent 35%),
+        var(--fundo);
+    color: var(--texto);
+    font-family: 'DM Sans', sans-serif;
+    padding-bottom: 125px;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--vermelho-claro);
+    outline-offset: 3px;
+}
+
+button,
+input,
+select {
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+/* CABEÇALHO */
+
+.cabecalho {
+    padding: 28px 7%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(16, 11, 14, 0.75);
+}
+
+.logo {
+    color: var(--texto);
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo span {
+    color: var(--vermelho-claro);
+}
+
+.subtitulo {
+    margin-top: 5px;
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* CONTEÚDO */
+
+.container {
+    width: min(1120px, 86%);
+    margin: 0 auto;
+}
+
+.boas-vindas {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 250px;
+    margin: 35px 0;
+    padding: 45px;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 22px;
+    background:
+        linear-gradient(110deg, rgba(64, 21, 34, 0.95), rgba(27, 17, 23, 0.96)),
+        var(--fundo-card);
+    box-shadow: var(--sombra);
+}
+
+.texto-boas-vindas {
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+}
+
+.etiqueta {
+    color: var(--vermelho-claro);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.boas-vindas h1 {
+    margin: 15px 0;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 4rem);
+    font-weight: 500;
+    line-height: 1.1;
+}
+
+.boas-vindas h1 span {
+    color: var(--vermelho-claro);
+}
+
+.boas-vindas p {
+    max-width: 420px;
+    color: #d0bac1;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.decoracao-lua {
+    color: rgba(231, 170, 187, 0.16);
+    font-family: serif;
+    font-size: 10rem;
+    line-height: 1;
+    transform: rotate(-20deg);
+    user-select: none;
+}
+
+/* CARTÕES DE RESUMO */
+
+.resumo {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+    margin-bottom: 60px;
+}
+
+.cartao-resumo {
+    padding: 24px;
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    background: var(--fundo-card);
+    box-shadow: var(--sombra);
+}
+
+.icone-resumo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    background: var(--vinho);
+    color: var(--vermelho-claro);
+    font-size: 1.25rem;
+}
+
+.cartao-resumo p {
+    margin-bottom: 7px;
+    color: var(--texto-suave);
+    font-size: 0.83rem;
+}
+
+.cartao-resumo strong {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* TÍTULOS DAS SEÇÕES */
+
+.biblioteca,
+.secao-playlists {
+    margin-bottom: 65px;
+}
+
+.titulo-secao {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.titulo-secao h2 {
+    margin-top: 7px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* BOTÕES */
+
+.botao-principal,
+.botao-secundario {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 43px;
+    padding: 11px 18px;
+    border-radius: 11px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.botao-principal {
+    border: 1px solid var(--vermelho);
+    background: var(--vermelho);
+    color: white;
+}
+
+.botao-principal:hover {
+    background: #bd405b;
+    border-color: #bd405b;
+    transform: translateY(-1px);
+}
+
+.botao-secundario {
+    border: 1px solid var(--borda);
+    background: var(--fundo-card);
+    color: var(--texto);
+}
+
+.botao-secundario:hover {
+    border-color: var(--vermelho-claro);
+    background: var(--fundo-card-hover);
+}
+
+/* PESQUISA E FILTROS */
+
+.controles-biblioteca {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 28px;
+}
+
+.campo-pesquisa {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    gap: 10px;
+    min-width: 0;
+    padding: 0 15px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: var(--fundo-card);
+    color: var(--vermelho-claro);
+}
+
+.campo-pesquisa span {
+    font-size: 1.4rem;
+}
+
+.campo-pesquisa input {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--texto);
+}
+
+.campo-pesquisa input::placeholder {
+    color: #8d777e;
+}
+
+.controles-biblioteca select {
+    max-width: 210px;
+    padding: 12px;
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+    background: var(--fundo-card);
+    color: var(--texto);
+}
+
+/* FORMULÁRIOS */
+
+#formulario-container,
+#formulario-playlist-container {
+    margin-bottom: 28px;
+    padding: 25px;
+    border: 1px solid var(--borda);
+    border-radius: 18px;
+    background: var(--fundo-card);
+    box-shadow: var(--sombra);
+}
+
+#formulario-musica,
+#formulario-playlist {
+    display: grid;
+    gap: 12px;
+}
+
+#formulario-musica h3 {
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+}
+
+#formulario-musica label,
+#formulario-playlist label {
+    margin-top: 5px;
+    color: #dfcbd1;
+    font-size: 0.83rem;
+    font-weight: 600;
+}
+
+#formulario-musica input,
+#formulario-playlist input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background: #120c10;
+    color: var(--texto);
+}
+
+#formulario-musica input:focus,
+#formulario-playlist input:focus {
+    border-color: var(--vermelho-claro);
+    outline: none;
+}
+
+#formulario-musica input[type="file"] {
+    padding: 10px;
+}
+
+.aviso-arquivo {
+    color: var(--texto-suave);
+    font-size: 0.78rem;
+    line-height: 1.6;
+}
+
+.botoes-formulario {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+/* GRADE DE MÚSICAS */
+
+.grade-musicas {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.mensagem-vazia {
+    grid-column: 1 / -1;
+    padding: 45px 20px;
+    border: 1px dashed #56303d;
+    border-radius: 18px;
+    color: var(--texto-suave);
+    text-align: center;
+}
+
+.mensagem-vazia > span {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--vermelho-claro);
+    font-size: 2.2rem;
+}
+
+.mensagem-vazia h3 {
+    margin-bottom: 9px;
+    color: var(--texto);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.mensagem-vazia p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+/* CARTÕES CRIADOS PELO JAVASCRIPT */
+
+.cartao-musica {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    background: var(--fundo-card);
+    transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.cartao-musica:hover {
+    transform: translateY(-4px);
+    border-color: var(--vinho-claro);
+}
+
+.capa-musica {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    background: linear-gradient(145deg, var(--vinho), var(--fundo));
+}
+
+.conteudo-musica {
+    padding: 15px;
+}
+
+.conteudo-musica h3 {
+    overflow-wrap: anywhere;
+    margin-bottom: 5px;
+    font-size: 0.98rem;
+}
+
+.artista-musica {
+    overflow-wrap: anywhere;
+    margin-bottom: 5px;
+    color: var(--texto-suave);
+    font-size: 0.82rem;
+}
+
+.album-musica {
+    overflow-wrap: anywhere;
+    margin-bottom: 13px;
+    color: #947b84;
+    font-size: 0.75rem;
+}
+
+.acoes-musica {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 13px;
+}
+
+.acoes-musica button,
+.botao-tocar,
+.botao-favoritar,
+.botao-excluir-musica {
+    padding: 8px 10px;
+    border: 1px solid var(--borda);
+    border-radius: 9px;
+    background: #24131b;
+    color: var(--texto);
+    font-size: 0.75rem;
+}
+
+.botao-tocar:hover,
+.botao-favoritar:hover {
+    border-color: var(--vermelho-claro);
+}
+
+.botao-favoritar.ativo {
+    border-color: var(--vermelho);
+    background: var(--vinho);
+    color: #ff9bb0;
+}
+
+.botao-excluir-musica:hover {
+    border-color: #a8324c;
+    color: #ff9bb0;
+}
+
+/* PLAYLISTS */
+
+.grade-playlists {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.cartao-playlist {
+    padding: 22px;
+    border: 1px solid var(--borda);
+    border-radius: 16px;
+    background:
+        linear-gradient(135deg, rgba(100, 34, 55, 0.32), transparent 80%),
+        var(--fundo-card);
+}
+
+.icone-playlist {
+    margin-bottom: 16px;
+    color: var(--vermelho-claro);
+    font-size: 1.8rem;
+}
+
+.cartao-playlist h3 {
+    overflow-wrap: anywhere;
+    margin-bottom: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+}
+
+.cartao-playlist p {
+    margin-bottom: 14px;
+    color: var(--texto-suave);
+    font-size: 0.8rem;
+}
+
+.acoes-playlist {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.acoes-playlist button {
+    padding: 8px 10px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #24131b;
+    color: var(--texto);
+    font-size: 0.75rem;
+}
+
+/* PLAYER FIXO */
+
+.player-musical {
+    position: fixed;
+    z-index: 10;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(180px, 1fr);
+    align-items: center;
+    gap: 24px;
+    padding: 16px 7%;
+    border-top: 1px solid #4a2633;
+    background: rgba(18, 11, 15, 0.97);
+    box-shadow: 0 -8px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(16px);
+}
+
+.informacao-player {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.capa-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    overflow: hidden;
+    border-radius: 9px;
+    background: var(--vinho);
+    color: var(--vermelho-claro);
+    font-size: 1.3rem;
+}
+
+.capa-player img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.texto-player {
+    display: grid;
+    gap: 5px;
+    min-width: 0;
+}
+
+.texto-player strong,
+.texto-player span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.texto-player strong {
+    font-size: 0.83rem;
+}
+
+.texto-player span {
+    color: var(--texto-suave);
+    font-size: 0.75rem;
+}
+
+.controles-player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.controles-player button {
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: transparent;
+    color: var(--texto);
+    font-size: 0.8rem;
+}
+
+.controles-player button:hover {
+    background: var(--vinho);
+}
+
+.controles-player .botao-reproduzir {
+    width: 43px;
+    height: 43px;
+    background: var(--vermelho);
+    color: white;
+    font-size: 1rem;
+}
+
+.controles-player .botao-reproduzir:hover {
+    background: var(--vermelho-claro);
+}
+
+.progresso-player {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+    color: var(--texto-suave);
+    font-size: 0.7rem;
+}
+
+.progresso-player input {
+    width: 100%;
+    min-width: 0;
+    height: 4px;
+    accent-color: var(--vermelho-claro);
+    cursor: pointer;
+}
+
+/* RODAPÉ */
+
+.rodape {
+    padding: 25px 20px;
+    color: #8e747d;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 900px) {
+    .container {
+        width: 90%;
+    }
+
+    .grade-musicas {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .player-musical {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 12px;
+    }
+
+    .progresso-player {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-bottom: 145px;
+    }
+
+    .cabecalho {
+        padding: 22px 5%;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .container {
+        width: 90%;
+    }
+
+    .boas-vindas {
+        min-height: 210px;
+        margin: 24px 0;
+        padding: 25px;
+        border-radius: 17px;
+    }
+
+    .boas-vindas h1 {
+        font-size: 2.3rem;
+    }
+
+    .boas-vindas p {
+        max-width: 270px;
+        font-size: 0.85rem;
+    }
+
+    .decoracao-lua {
+        position: absolute;
+        right: -12px;
+        bottom: 5px;
+        font-size: 7rem;
+    }
+
+    .resumo {
+        gap: 9px;
+        margin-bottom: 45px;
+    }
+
+    .cartao-resumo {
+        padding: 13px 10px;
+        border-radius: 12px;
+    }
+
+    .icone-resumo {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 10px;
+        font-size: 1rem;
+    }
+
+    .cartao-resumo p {
+        font-size: 0.68rem;
+    }
+
+    .cartao-resumo strong {
+        font-size: 1.45rem;
+    }
+
+    .titulo-secao {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .titulo-secao h2 {
+        font-size: 1.55rem;
+    }
+
+    .titulo-secao button {
+        width: 100%;
+    }
+
+    .controles-biblioteca {
+        flex-direction: column;
+    }
+
+    .controles-biblioteca select {
+        width: 100%;
+        max-width: none;
+    }
+
+    .grade-musicas {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .conteudo-musica {
+        padding: 11px;
+    }
+
+    .conteudo-musica h3 {
+        font-size: 0.85rem;
+    }
+
+    .acoes-musica button {
+        padding: 7px;
+        font-size: 0.68rem;
+    }
+
+    .grade-playlists {
+        grid-template-columns: 1fr;
+    }
+
+    #formulario-container,
+    #formulario-playlist-container {
+        padding: 17px;
+    }
+
+    .player-musical {
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 10px;
+        padding: 12px 5%;
+    }
+
+    .capa-player {
+        width: 40px;
+        height: 40px;
+    }
+
+    .texto-player strong {
+        font-size: 0.75rem;
+    }
+
+    .texto-player span {
+        font-size: 0.68rem;
+    }
+
+    .controles-player {
+        gap: 4px;
+    }
+
+    .controles-player button {
+        width: 30px;
+        height: 34px;
+        font-size: 0.7rem;
+    }
+
+    .controles-player .botao-reproduzir {
+        width: 37px;
+        height: 37px;
+    }
+
+    .progresso-player {
+        grid-column: 1 / -1;
+        grid-row: 2;
+    }
+
+    .rodape {
+        padding-bottom: 20px;
+    }
+}
+
+@media (max-width: 360px) {
+    .grade-musicas {
+        grid-template-columns: 1fr;
+    }
+
+    .informacao-player {
+        gap: 8px;
+    }
+
+    .texto-player {
+        max-width: 135px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
